@@ -1,0 +1,145 @@
+html,
+body {
+  margin: 0;
+  font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  word-break: break-all;
+}
+body {
+  padding: 20px;
+}
+button {
+  outline: none;
+  border: none;
+  background: #fff;
+  code {
+    font-weight: 700;
+    font-size: 1.25em;
+  }
+}
+ul,
+ol {
+  margin: 0;
+  padding-left: 0;
+  list-style-type: none;
+}
+p {
+  margin: 0;
+}
+@radius: 4px;
+.card-container {
+  width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-column-gap: 30px;
+  .card-item {
+    flex: 0 0 auto;
+    display: flex;
+    .card {
+      border-radius: @radius;
+      display: flex;
+      align-items: stretch; // NOTE 等高
+
+      flex: 1 1;
+      margin: 1em 0;
+      flex-direction: column;
+      box-sizing: border-box;
+      transition: all 0.25s ease-out;
+      box-shadow: 0 1px 2px 0px rgba(168, 182, 191, 0.6);
+      &:hover {
+        box-shadow: 0 10px 20px 0px rgba(168, 182, 191, 0.6);
+        transform: translateY(-1px);
+      }
+      .card-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px 0;
+        border-top-left-radius: @radius;
+        border-top-right-radius: @radius;
+
+        .card-icon {
+          text-align: center;
+          font-size: 82px;
+          display: flex;
+          font-style: normal;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+          &:hover {
+            animation-name: styles_bounce;
+            animation-duration: 0.5s;
+          }
+        }
+      }
+      .card-body {
+        padding: 30px 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .card-body-code-wrapper {
+          .card-body-code {
+            code {
+              display: inline-block;
+              position: relative;
+              font-size: 20px;
+              font-family: Avenir, -apple-system, BlinkMacSystemFont, Segoe UI,
+                Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans,
+                Helvetica Neue, sans-serif;
+              cursor: pointer;
+              transition-duration: 0.3s;
+              &::after {
+                position: absolute;
+                content: " ";
+                bottom: -2px;
+                left: 0;
+                width: 0;
+                height: 0.2em;
+                border-radius: 4px;
+                z-index: 99;
+                transition: width 0.15s;
+                background-color: var(--emojiColor);
+              }
+              &:hover:after {
+                width: 100%;
+              }
+            }
+          }
+        }
+        .card-body-desc {
+          font-size: 17px;
+          color: #999;
+        }
+      }
+    }
+  }
+}
+
+@keyframes styles_bounce {
+  0%,
+  20%,
+  53%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    transform: translateZ(0);
+  }
+
+  40%,
+  43% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -9px, 0);
+  }
+
+  70% {
+    animation-timing-function: cubic-bezier(0.755, 0.05, 0.855, 0.06);
+    transform: translate3d(0, -5px, 0);
+  }
+
+  90% {
+    transform: translate3d(0, -2px, 0);
+  }
+}

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>gitmoji卡片效果</title>
+    <link rel="stylesheet" href="../style/animation/gitemoji.css" />
+  </head>
+  <body>
+    <script>
+      const emojis = [
+        {
+          icon: "🎨",
+          color: "#ff7281;",
+          code: ":art:",
+          description: "Improve structure / format of the code.",
+        },
+        {
+          icon: "⚡️",
+          color: "#40c4ff;",
+          code: ":zap:",
+          description: "Improve performance.",
+        },
+        {
+          icon: "🔥",
+          color: "#ff9d44;",
+          code: ":fire:",
+          description: "Remove code or files.",
+        },
+        {
+          icon: "🐛",
+          color: "#8cd842;",
+          code: ":bug:",
+          description: "Fix a bug.",
+        },
+        {
+          icon: "🚑️",
+          color: "#fb584a;",
+          code: ":ambulance:",
+          description: "Critical hotfix.",
+        },
+        {
+          icon: "✨",
+          color: "#ffe55f;",
+          code: ":sparkles:",
+          description: "Introduce new features.",
+        },
+        {
+          icon: "📝",
+          color: "#00e676;",
+          code: ":memo:",
+          description: "Add or update documentation.",
+        },
+        {
+          icon: "🚀",
+          color: "#00a9f0;",
+          code: ":rocket:",
+          description: "Deploy stuff.",
+        },
+        {
+          icon: "💄",
+          color: "#80deea;",
+          code: ":lipstick:",
+          description: "Add or update the UI and style files.",
+        },
+        {
+          icon: "🎉",
+          color: "#f74d5f;",
+          code: ":tada:",
+          description: "Begin a project.",
+        },
+        {
+          icon: "✅",
+          color: "#77e856;",
+          code: ":white_check_mark:",
+          description: "Add, update, or pass tests.",
+        },
+        {
+          icon: "🔒️",
+          color: "#ffce49;",
+          code: ":lock:",
+          description: "Fix security issues.",
+        },
+        {
+          icon: "🔖",
+          color: "#80deea;",
+          code: ":bookmark:",
+          description: "Release / Version tags.",
+        },
+        {
+          icon: "🚨",
+          color: "#536dfe;",
+          code: ":rotating_light:",
+          description: "Fix compiler / linter warnings.",
+        },
+        {
+          icon: "🚧",
+          color: "#ffb74d;",
+          code: ":construction:",
+          description: "Work in progress.",
+        },
+        {
+          icon: "💚",
+          color: "#c5e763;",
+          code: ":green_heart:",
+          description: "Fix CI Build.",
+        },
+        {
+          icon: "⬇️",
+          color: "#ef5350;",
+          code: ":arrow_down:",
+          description: "Downgrade dependencies.",
+        },
+        {
+          icon: "⬆️",
+          color: "#00e676;",
+          code: ":arrow_up:",
+          description: "Upgrade dependencies.",
+        },
+        {
+          icon: "📌",
+          color: "#39c2f1;",
+          code: ":pushpin:",
+          description: "Pin dependencies to specific versions.",
+        },
+        {
+          icon: "👷",
+          color: "#64b5f6;",
+          code: ":construction_worker:",
+          description: "Add or update CI build system.",
+        },
+        {
+          icon: "📈",
+          color: "#cedae6;",
+          code: ":chart_with_upwards_trend:",
+          description: "Add or update analytics or track code.",
+        },
+        {
+          icon: "♻️",
+          color: "#77e856;",
+          code: ":recycle:",
+          description: "Refactor code.",
+        },
+        {
+          icon: "➕",
+          color: "#00e676;",
+          code: ":heavy_plus_sign:",
+          description: "Add a dependency.",
+        },
+        {
+          icon: "➖",
+          color: "#ef5350;",
+          code: ":heavy_minus_sign:",
+          description: "Remove a dependency.",
+        },
+        {
+          icon: "🔧",
+          color: "#ffc400;",
+          code: ":wrench:",
+          description: "Add or update configuration files.",
+        },
+        {
+          icon: "🔨",
+          color: "#ffc400;",
+          code: ":hammer:",
+          description: "Add or update development scripts.",
+        },
+        {
+          icon: "🌐",
+          color: "#e7f4ff;",
+          code: ":globe_with_meridians:",
+          description: "Internationalization and localization.",
+        },
+        {
+          icon: "✏️",
+          color: "#ffce49;",
+          code: ":pencil2:",
+          description: "Fix typos.",
+        },
+        {
+          icon: "💩",
+          color: "#a78674;",
+          code: ":poop:",
+          description: "Write bad code that needs to be improved.",
+        },
+        {
+          icon: "⏪️",
+          color: "#56d1d8;",
+          code: ":rewind:",
+          description: "Revert changes.",
+        },
+        {
+          icon: "🔀",
+          color: "#56d1d8;",
+          code: ":twisted_rightwards_arrows:",
+          description: "Merge branches.",
+        },
+        {
+          icon: "📦️",
+          color: "#fdd0ae;",
+          code: ":package:",
+          description: "Add or update compiled files or packages.",
+        },
+        {
+          icon: "👽️",
+          color: "#c5e763;",
+          code: ":alien:",
+          description: "Update code due to external API changes.",
+        },
+        {
+          icon: "🚚",
+          color: "#ef584a;",
+          code: ":truck:",
+          description: "Move or rename resources (e.g.: files, paths, routes).",
+        },
+        {
+          icon: "📄",
+          color: "#d9e3e8;",
+          code: ":page_facing_up:",
+          description: "Add or update license.",
+        },
+        {
+          icon: "💥",
+          color: "#f94f28;",
+          code: ":boom:",
+          description: "Introduce breaking changes.",
+        },
+        {
+          icon: "🍱",
+          color: "#ff5864;",
+          code: ":bento:",
+          description: "Add or update assets.",
+        },
+        {
+          icon: "♿️",
+          color: "#00b1fb;",
+          code: ":wheelchair:",
+          description: "Improve accessibility.",
+        },
+        {
+          icon: "💡",
+          color: "#ffce49;",
+          code: ":bulb:",
+          description: "Add or update comments in source code.",
+        },
+        {
+          icon: "🍻",
+          color: "#fbb64b;",
+          code: ":beers:",
+          description: "Write code drunkenly.",
+        },
+        {
+          icon: "💬",
+          color: "#cedae6;",
+          code: ":speech_balloon:",
+          description: "Add or update text and literals.",
+        },
+        {
+          icon: "🗃️",
+          color: "#c5e763;",
+          code: ":card_file_box:",
+          description: "Perform database related changes.",
+        },
+        {
+          icon: "🔊",
+          color: "#23b4d2;",
+          code: ":loud_sound:",
+          description: "Add or update logs.",
+        },
+        {
+          icon: "🔇",
+          color: "#e6ebef;",
+          code: ":mute:",
+          description: "Remove logs.",
+        },
+        {
+          icon: "👥",
+          color: "#ffce49;",
+          code: ":busts_in_silhouette:",
+          description: "Add or update contributor(s).",
+        },
+        {
+          icon: "🚸",
+          color: "#ffce49;",
+          code: ":children_crossing:",
+          description: "Improve user experience / usability.",
+        },
+        {
+          icon: "🏗️",
+          color: "#ffe55f;",
+          code: ":building_construction:",
+          description: "Make architectural changes.",
+        },
+        {
+          icon: "📱",
+          color: "#40c4ff;",
+          code: ":iphone:",
+          description: "Work on responsive design.",
+        },
+        {
+          icon: "🤡",
+          color: "#ff7281;",
+          code: ":clown_face:",
+          description: "Mock things.",
+        },
+        {
+          icon: "🥚",
+          color: "#77e856;",
+          code: ":egg:",
+          description: "Add or update an easter egg.",
+        },
+        {
+          icon: "🙈",
+          color: "#8bdfe7;",
+          code: ":see_no_evil:",
+          description: "Add or update a .gitignore file.",
+        },
+        {
+          icon: "📸",
+          color: "#00a9f0;",
+          code: ":camera_flash:",
+          description: "Add or update snapshots.",
+        },
+        {
+          icon: "⚗️",
+          color: "#7f39fb;",
+          code: ":alembic:",
+          description: "Perform experiments.",
+        },
+        {
+          icon: "🔍️",
+          color: "#ffe55f;",
+          code: ":mag:",
+          description: "Improve SEO.",
+        },
+        {
+          icon: "🏷️",
+          color: "#cb63e6;",
+          code: ":label:",
+          description: "Add or update types.",
+        },
+        {
+          icon: "🌱",
+          color: "#c5e763;",
+          code: ":seedling:",
+          description: "Add or update seed files.",
+        },
+        {
+          icon: "🚩",
+          color: "#ffce49;",
+          code: ":triangular_flag_on_post:",
+          description: "Add, update, or remove feature flags.",
+        },
+        {
+          icon: "🥅",
+          color: "#c7cb12;",
+          code: ":goal_net:",
+          description: "Catch errors.",
+        },
+        {
+          icon: "💫",
+          color: "#ffdb3a;",
+          code: ":dizzy:",
+          description: "Add or update animations and transitions.",
+        },
+        {
+          icon: "🗑️",
+          color: "#d9e3e8;",
+          code: ":wastebasket:",
+          description: "Deprecate code that needs to be cleaned up.",
+        },
+        {
+          icon: "🛂",
+          color: "#4dc6dc;",
+          code: ":passport_control:",
+          description:
+            "Work on code related to authorization, roles and permissions.",
+        },
+        {
+          icon: "🩹",
+          color: "#fbcfb7;",
+          code: ":adhesive_bandage:",
+          description: "Simple fix for a non-critical issue.",
+        },
+        {
+          icon: "🧐",
+          color: "#ffe55f;",
+          code: ":monocle_face:",
+          description: "Data exploration/inspection.",
+        },
+        {
+          icon: "⚰️",
+          color: "#d9e3e8;",
+          code: ":coffin:",
+          description: "Remove dead code.",
+        },
+        {
+          icon: "🧪",
+          color: "#fb584a;",
+          code: ":test_tube:",
+          description: "Add a failing test.",
+        },
+        {
+          icon: "👔",
+          color: "#83beec;",
+          code: ":necktie:",
+          description: "Add or update business logic",
+        },
+        {
+          icon: "🩺",
+          color: "#77e856;",
+          code: ":stethoscope:",
+          description: "Add or update healthcheck.",
+        },
+        {
+          icon: "🧱",
+          color: "#ff6723;",
+          code: ":bricks:",
+          description: "Infrastructure related changes.",
+        },
+      ];
+      const html = `
+ <ul class="card-container">${emojis
+   .map(
+     (emoji) => `<li class="card-item">
+        <article class="card">
+          <header class="card-header" style="background: ${emoji.color}">
+            <i class="card-icon">${emoji.icon}</i>
+          </header>
+          <div class="card-body">
+            <p class="card-body-code-wrapper">
+              <button class="card-body-code">
+                <code style="--emojiColor:${emoji.color}">${emoji.code}</code>
+              </button>
+            </p>
+            <p class="card-body-desc">
+              ${emoji.description}
+            </p>
+          </div>
+        </article>
+      </li>`
+   )
+   .join("")}
+    </ul>
+        `;
+      document.body.innerHTML = html;
+    </script>
+  </body>
+</html>
