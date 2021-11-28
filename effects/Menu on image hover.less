@@ -1,0 +1,46 @@
+.container {
+  background: rgb(15, 15, 15);
+  padding: 20px;
+  a {
+    text-decoration: none;
+    color: #fff;
+  }
+  .hover-menu {
+    width: 480px;
+    overflow: hidden;
+    display: flex;
+    margin: 0;
+
+    &:hover {
+      img {
+        transform: translateX(100px);
+        opacity: 0.5;
+      }
+      div {
+        transform: translateX(0%);
+        opacity: 1;
+        a {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    img {
+      width: 480px;
+      transition: all 0.4s ease-in-out;
+    }
+    div {
+      transition: all 0.4s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transform: translateX(-100%);
+      opacity: 0.6;
+      a {
+        padding: 10px 20px;
+      }
+    }
+  }
+}

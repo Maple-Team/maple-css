@@ -8,5 +8,12 @@
       "problemMatcher": [],
       "label": "gulp: less"
     },
+    {
+      "type": "gulp",
+      "task": "default",
+      "group": "build",
+      "problemMatcher": [],
+      "label": "gulp: default"
+    },
   ]
 }
