@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="./style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <button>
+      <span class="text">✨ hover me ✨</span>
+      <svg viewBox="0 0 100 50" preserveAspectRatio="none">
+        <defs>
+          <filter
+            id="shadow"
+            filterUnits="userSpaceOnUse"
+            height="200%"
+            width="200%"
+            y="-50%"
+            x="-50%"
+          >
+            <feDropShadow
+              dx="0"
+              dy="6"
+              stdDeviation="6"
+              flood-color="#17BBAB"
+              flood-opacity="0.4"
+            />
+          </filter>
+
+          <filter
+            id="border"
+            filterUnits="userSpaceOnUse"
+            height="200%"
+            width="200%"
+            y="-50%"
+            x="-50%"
+          >
+            <feMorphology
+              in="SourceAlpha"
+              result="DILATED"
+              operator="dilate"
+              radius="1.2"
+            ></feMorphology>
+
+            <feFlood
+              flood-color="#fff"
+              flood-opacity="1"
+              result="WHITE"
+            ></feFlood>
+            <feComposite
+              in="WHITE"
+              in2="DILATED"
+              operator="in"
+              result="OUTLINE"
+            ></feComposite>
+
+            <feMerge>
+              <feMergeNode in="OUTLINE" />
+              <feMergeNode in="SourceGraphic" />
+            </feMerge>
+          </filter>
+        </defs>
+        <g class="focus">
+          <polyline
+            stroke="#17bbab"
+            id="wibble"
+            fill="none"
+            stroke-width="40"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </g>
+      </svg>
+    </button>
+  </body>
+  <script src="./SplitText3.min.js"></script>
+  <script src="./gsap.min.js"></script>
+  <script src="./index.js"></script>
+</html>
