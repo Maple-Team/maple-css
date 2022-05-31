@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card List Showcase</title>
+    <link rel="stylesheet" href="../style/normal.css" />
+    <link rel="stylesheet" href="../style/effects/card-list.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <ul class="card-items">
+          <li class="card-item">
+            <article class="card">
+              <p class="header">
+                <span class="name">Article</span>
+                <span class="date">on Nov 22, 2021</span>
+              </p>
+              <div class="body">
+                <p class="title">
+                  <a href="#">Icon Glassmorphism Effect in CSS</a>
+                </p>
+                <ul class="keyword-items">
+                  <li class="keyword-item">
+                    <a href="#" class="keyword"> BACKDROP-FILTER</a>
+                    <a href="#" class="keyword"> BACKGROUND-CLIP</a>
+                    <a href="#" class="keyword"> ELEMENT()</a>
+                    <a href="#" class="keyword"> EMOJI</a>
+                    <a href="#" class="keyword"> FILTER</a>
+                    <a href="#" class="keyword"> HSL</a>
+                    <a href="#" class="keyword"> MASK-CLIP</a>
+                    <a href="#" class="keyword"> NAVIGATION</a>
+                  </li>
+                </ul>
+              </div>
+              <p class="footer">
+                <img src="" />
+                <a href="#">Ana Tudor</a>
+              </p>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script>
+    const data = [
+      {
+        title: "A Handy Little System for Animated Entrances in CSS",
+        tags: ["animation", "animation-delay", "css animation", "keyframes"],
+        date: "Nov 29, 2021",
+        author: "Neale Van Fleet",
+        img: "https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=80&d=retro&r=pg",
+      },
+      {
+        title: "A Clever Sticky Footer Technique",
+        tags: ["sticky", "sticky footer"],
+        date: "Nov 17, 2021",
+        author: "Chris Coyier",
+        img: "https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=80&d=retro&r=pg",
+      },
+      {
+        title: "Icon Glassmorphism Effect in CSS",
+        tags: [
+          "backdrop-filter",
+          "background-clip",
+          "element()",
+          "emoji",
+          "filter",
+          "hsl",
+          "mask-clip",
+          "navigation",
+        ],
+        date: "Nov 8, 2021",
+        author: "Ana Tudor",
+        img: "https://secure.gravatar.com/avatar/bee436794e066a5423040cf673c7506f?s=80&d=retro&r=pg",
+      },
+      {
+        title: "Responsive Layouts, Fewer Media Queries",
+        tags: ["clamp", "flexbox", "grid", "media queries", "responsive"],
+        date: "Nov 22, 2021",
+        author: "Temani Afif",
+        img: "https://secure.gravatar.com/avatar/2c12e74c8162614e08a31d704ed9e193?s=80&d=retro&r=pg",
+      },
+      {
+        title: "Rebase vs. Merge: Integrating Changes in Git",
+        tags: ["git", "merge conflicts", "rebase"],
+        date: "Dec 3, 2021",
+        author: "Tobias Günther",
+        img: "https://secure.gravatar.com/avatar/4ce5f09c24954f13334bd193ffe522ee?s=80&d=retro&r=pg",
+      },
+      {
+        title: "PHP Date and Time Recipes",
+        tags: ["dates", "locales", "php"],
+        date: "Nov 18, 2021",
+        author: "Arjuna Sky Kok",
+        img: "https://secure.gravatar.com/avatar/cbef51a3e9e8ae16c6326ee875b825c1?s=80&d=retro&r=pg",
+      },
+      {
+        title: "Parallax Powered by CSS Custom Properties",
+        tags: ["animation", "custom properties", "GSAP"],
+        date: "Nov 19, 2021",
+        author: "Jhey Tompkins",
+        img: "https://css-tricks.com/wp-content/uploads/2019/09/bear-with-cap-scaled-80x80.png",
+      },
+      {
+        title: "React Suspense: Lessons Learned While Loading Data",
+        tags: ["react suspense"],
+        date: "Nov 9, 2021",
+        author: "Adam Rackis",
+        img: "https://secure.gravatar.com/avatar/d4b0907c0d98a2394568d9bf9e8814c3?s=80&d=retro&r=pg",
+      },
+      {
+        title: "CSS-ing Candy Ghost Buttons",
+        tags: [
+          "background-clip",
+          "border-image",
+          "buttons",
+          "clip-path",
+          "ghost buttons",
+          "gradients",
+          "mask",
+          "mask-clip",
+          "mask-composite",
+          "mix-blend-mode",
+        ],
+        date: "Oct 31, 2021",
+        author: "Ana Tudor",
+        img: "https://secure.gravatar.com/avatar/bee436794e066a5423040cf673c7506f?s=80&d=retro&r=pg",
+      },
+      {
+        title: "CSS “decorations”",
+        tags: ["css comments"],
+        date: "Nov 22, 2021",
+        author: "Chris Coyier",
+        img: "https://secure.gravatar.com/avatar/8081b26e05bb4354f7d65ffc34cbbd67?s=80&d=retro&r=pg",
+      },
+    ];
+    document.querySelector(".card-items").innerHTML = data
+      .map(({ title, tags, date, author, img }) => {
+        return `
+        <li class="card-item">
+            <article class="card">
+              <p class="header">
+                <span class="name">Article</span>
+                <span class="date">on ${date}</span>
+              </p>
+              <div class="body">
+                <p class="title">
+                  <a href="#">${title}</a>
+                </p>
+                <ul class="keyword-items">
+                  <li class="keyword-item">
+                    ${tags
+                      .map((tag) => `<a href="#" class="keyword">${tag}</a>`)
+                      .join("")}
+                  </li>
+                </ul>
+              </div>
+              <p class="footer">
+                <img src="${img}" />
+                <a href="#">${author}</a>
+              </p>
+            </article>
+          </li>
+        `;
+      })
+      .join("");
+  </script>
+</html>

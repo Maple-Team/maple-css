@@ -1,0 +1,39 @@
+<head>
+  <title>Line-based placement named lines</title>
+  <link href="../../style/layout/base.css" rel="stylesheet" />
+  <style>
+    .wrapper {
+      grid-template-columns: [col1-start] 100px [col2-start] 100px [col3-start] 100px [col3-end];
+      grid-template-rows: [row1-start] auto [row2-start] auto [row2-end];
+      grid-gap: 10px;
+    }
+    .a {
+      grid-row: row1-start;
+      grid-column: col1-start/col3-start;
+    }
+    .b {
+      grid-column: col3-start/col3-end;
+      grid-row: row1-start/row2-end;
+    }
+    .c {
+      grid-row: row2-start/row2-end;
+      grid-column: col1-start/col2-start;
+    }
+    .d {
+      grid-row: row2-start/row2-end;
+      grid-column: col2-start/col3-start;
+    }
+  </style>
+</head>
+<p>
+  We can name lines rather than targeting them by number. Name the line inside
+  brackets. In the code below you can see that I name the very first column line
+  col1-start then comes the 100 pixel first column track. Having named the lines
+  you can use the names, rather than numbers.
+</p>
+<div class="wrapper">
+  <div class="box a">A</div>
+  <div class="box b">B</div>
+  <div class="box c">C</div>
+  <div class="box d">D</div>
+</div>

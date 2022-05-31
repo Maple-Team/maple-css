@@ -1,0 +1,55 @@
+<head>
+  <title>Line-based placement named lines with spans</title>
+  <link href="../../style/layout/base.css" rel="stylesheet" />
+  <style>
+    .wrapper {
+      /* grid-template-columns: [col1-start] 100px [col2-start] 100px [col3-start] 100px [col4-start] 100px [col4-end];
+      grid-template-rows: [row1-start] auto [row2-start] auto [row3-start] auto [row3-end]; */
+      grid-template-columns: [col] 100px [col] 100px [col] 100px [col] 100px;
+      grid-template-rows: [row] auto [row] auto [row];
+      grid-gap: 10px;
+    }
+    .a {
+      /* grid-row: row1-start;
+      grid-column: col1-start/span 2; */
+      grid-row: row;
+      grid-column: col / span 2;
+    }
+    .b {
+      /* grid-column: col3-start/span 2;
+      grid-row: row1-start/row2-start; */
+      grid-row: row;
+      grid-column: col 3 / span 2;
+    }
+    .c {
+      /* grid-row: row2-start/row3-start;
+      grid-column: col1-start/span 1; */
+      grid-row: row 2;
+      grid-column: col;
+    }
+    .d {
+      /* grid-row: row2-start/row3-start;
+      grid-column: col2-start/span 3; */
+      grid-row: row 2;
+      grid-column: col 2 / span 3;
+    }
+    .e {
+      /* grid-row: row3-start;
+      grid-column: col1-start/span 4; */
+      grid-row: row 3;
+      grid-column: col / span 4;
+    }
+  </style>
+</head>
+<p>
+  You can give lines the same name and then use the span keyword to target lines
+  of a certain name. This is really useful if you want to create a complex grid
+  with multiple content tracks and gutters.
+</p>
+<div class="wrapper">
+  <div class="box a">A</div>
+  <div class="box b">B</div>
+  <div class="box c">C</div>
+  <div class="box d">D</div>
+  <div class="box e">E</div>
+</div>
