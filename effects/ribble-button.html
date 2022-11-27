@@ -10,7 +10,62 @@
   </head>
   <body>
     <div class="container">
-
+      <button class="xunlei-ribble">button1</button>
+      <button class="css-trick-ribble1">Find out more</button>
+      <button class="css-trick-ribble2">Button</button>
+      <button class="button3">Button</button>
     </div>
   </body>
+  <script>
+    // https://css-tricks.com/how-to-recreate-the-ripple-effect-of-material-design-buttons/
+    function createRipple(event) {
+      const button = event.currentTarget;
+      const ripple = button.getElementsByClassName("ripple")[0];
+
+      if (ripple) {
+        ripple.remove();
+      }
+
+      // 点击的当前位置，创建一个元素，添加水波纹动画
+      // dynamic inject
+      const circle = document.createElement("span");
+      const diameter = Math.max(button.clientWidth, button.clientHeight);
+      const radius = diameter / 2;
+
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${event.clientX - (button.offsetLeft + radius)}px`;
+      circle.style.top = `${event.clientY - (button.offsetTop + radius)}px`;
+      circle.classList.add("ripple");
+
+      button.appendChild(circle);
+    }
+    const buttons = document.getElementsByClassName("css-trick-ribble1");
+    for (const button of buttons) {
+      button.addEventListener("click", createRipple);
+    }
+  </script>
+  <script>
+    let buttons3 = document.querySelectorAll(".button3");
+
+    Array.prototype.forEach.call(buttons3, function (b) {
+      b.addEventListener("click", createRipple3);
+    });
+
+    function createRipple3(e) {
+      if (this.getElementsByClassName("css-trick-ribble3").length > 0) {
+        this.removeChild(this.childNodes[1]);
+      }
+
+      var circle = document.createElement("span");
+      this.appendChild(circle);
+
+      var d = Math.max(this.clientWidth, this.clientHeight);
+      circle.style.width = circle.style.height = d + "px";
+
+      circle.style.left = e.clientX - this.offsetLeft - d / 2 + "px";
+      circle.style.top = e.clientY - this.offsetTop - d / 2 + "px";
+
+      circle.classList.add("css-trick-ribble3");
+    }
+  </script>
 </html>

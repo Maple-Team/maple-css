@@ -1,3 +1,139 @@
-.ul{
-  
+.container {
+  padding: 10px;
+}
+
+button.xunlei-ribble {
+  position: relative;
+  display: block;
+  background-color: #ff9501;
+  border: 1px solid #fff;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.25s;
+  color: #fff;
+  // background: transparent;
+
+  overflow: hidden;
+  width: 196px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 25px;
+  font-size: 18px;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    opacity: 0;
+    background: #ffffff;
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale3d(0.4, 1, 1);
+    transition: transform 0.2s, opacity 0.2s;
+    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+  }
+  &:hover:before {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+//Using position: relative allows us to use position: absolute on our ripple element, which we need to control its position. Meanwhile, overflow: hidden prevents the ripple from exceeding the button’s edges
+button.css-trick-ribble1 {
+  position: relative;
+  overflow: hidden;
+
+  transition: background 400ms;
+  color: #fff;
+  background-color: #6200ee;
+  padding: 1rem 2rem;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.25rem;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+span.ripple {
+  position: absolute; /* The absolute position we mentioned earlier */
+  border-radius: 50%;
+  transform: scale(0);
+  animation: ripple 600ms linear;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes ripple {
+  to {
+    transform: scale(4); // 放大4倍
+    opacity: 0;
+  }
+}
+
+/* Ripple effect */
+button.css-trick-ribble2 {
+  background-position: center;
+  transition: background 0.8s;
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+
+  &:hover {
+    background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%)
+      center/15000%;
+  }
+  &:active {
+    background-color: #6eb9f7;
+    background-size: 100%;
+    transition: background 0s;
+  }
+}
+
+body {
+  background-color: #efefef;
+}
+
+.button3 {
+  font-family: "Roboto";
+  font-size: 24px;
+  padding: 1em 2em;
+  margin: 2px;
+  border: 0;
+  outline: 0;
+  color: white;
+  background-color: #2196f3;
+  text-transform: uppercase;
+  border-radius: 0.15em;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.css-trick-ribble3 {
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.7);
+  position: absolute;
+  transform: scale(0);
+  animation: ripple3 0.6s linear;
+}
+
+@keyframes ripple3 {
+  to {
+    transform: scale(2.5);
+    opacity: 0;
+  }
 }

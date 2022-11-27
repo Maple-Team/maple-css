@@ -40,3 +40,5 @@
   inherits: false;
 }
 ```
+
+- `:where()`, `:is()`

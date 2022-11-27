@@ -4,8 +4,7 @@
   "description": "## Reference",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "default": "pnpx gulp default"
+    "default": "gulp default"
   },
   "repository": {
     "type": "git",
@@ -27,5 +26,8 @@
     "gulp-postcss": "^9.0.1",
     "gulp-replace": "^1.1.3",
     "postcss": "^8.3.11"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21"
   }
 }
