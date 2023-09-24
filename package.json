@@ -4,7 +4,8 @@
   "description": "## Reference",
   "main": "index.js",
   "scripts": {
-    "default": "gulp default"
+    "default": "gulp default",
+    "dev": "pnpx gulp default"
   },
   "repository": {
     "type": "git",

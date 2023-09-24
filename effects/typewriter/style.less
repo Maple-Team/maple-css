@@ -1,0 +1,72 @@
+html,
+body {
+  margin: 0;
+}
+
+@bg-color: #454545;
+
+body {
+  font-family: monospace;
+  background-color: @bg-color;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  font-size: 24px;
+}
+
+
+
+h1 {
+  position: relative;
+
+  // outline: 2px solid #000; 文字大小与盒子大小保持一致
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0; // 偏移值
+  }
+
+  &::before {
+    background: @bg-color;
+    animation: typing 3s steps(7) forwards, del 2s steps(4) 4.5s forwards;
+  }
+
+  &::after {
+    width: 2px;
+    background-color: #fff;
+    animation: typing 3s steps(7) forwards, belink 500ms infinite, del 2s steps(4) 4.5s forwards;
+  }
+}
+
+@keyframes del {
+  from {
+    left: 100%;
+  }
+
+  to {
+    // left: 5.1ch; // 不同字体的宽度值不一样
+    left: calc(3/7 * 100%);
+  }
+}
+
+@keyframes typing {
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes belink {
+
+  from,
+  to {
+    background: transparent;
+  }
+
+  50% {
+    background: #fff;
+  }
+}
